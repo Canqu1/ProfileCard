@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="./src/img/faviconAgency.png" type="image/gif" sizes="16x16" />
+    <link rel="stylesheet" href="./src/css/base.css" />
+    <link rel="stylesheet" href="./src/css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+        integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500&display=swap" rel="stylesheet" />
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="e0e0e0" />
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="2e2e2e" />
+
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+    <title>Le Minh Tuan</title>
+</head>
+
+<body class="theme-change">
+    <div class="main grid">
+        <!-- Begin: Profile -->
+        <div class="profile button theme-change">
+            <div class="avatar-frame button theme-change button--pressed">
+                <img src="./src/img/11zon_cropped.png" alt="" class="avatar-frame__img" />
+            </div>
+            <h1 class="profile__name">Le Minh Tuan</h1>
+            <p class="profile__descriptions">
+                Fullstack Developer
+            </p>
+            <a href="./src/file/file.vcf" class="profile__add-to-contact-btn button theme-change button--highlight">
+                <h5>Add to contact</h5>
+            </a>
+        </div>
+        <!-- End: Profile -->
+        <!-- Begin: Social -->
+        <div class="social-btns-container row">
+            <a id="social-btn__facebook" href="https://www.facebook.com/profile.php?id=100075338945442"
+                class="social-btn button theme-change col-forth col">
+                <!-- <img src="./src/icon/facebook.svg" alt="" /> -->
+                <i class="fab fa-facebook-f"></i>
+            </a>
+            <a id="social-btn__instagram" href="https://www.instagram.com/ca.huw/"
+                class="social-btn button theme-change col-forth col">
+                <!-- <img src="./src/icon/instagram.svg" alt="" /> -->
+                <i class="fa-brands fa-instagram"></i>
+            </a>
+            <button onclick="showDetails('social-btn__mail', 'details-mail')" id="social-btn__mail"
+                class="social-btn button theme-change col-forth col has-more">
+                <i class="fas fa-envelope"></i>
+            </button>
+            <button onclick="showDetails('social-btn__phone', 'details-phone')" id="social-btn__phone"
+                class="social-btn button theme-change col-forth col has-more">
+                <i class="fas fa-phone"></i>
+            </button>
+        </div>
+        <!-- End: Social -->
+
+        <!-- Begin: Mail & Phone -->
+        <div id="details-mail" class="more-details col-full button button--pressed theme-change hidden">
+            <p onclick="copyContent(this)">lmt562002@gmail.com</p>
+            <a class="more-details-btn col button theme-change button--highlight" href="mailto:lmt562002@gmail.com">
+                Send
+            </a>
+        </div>
+        <div id="details-phone" class="more-details col-full button button--pressed theme-change hidden">
+            <p onclick="copyContent(this)">0914791895</p>
+            <a class="more-details-btn col button theme-change button--highlight" href="tel:0914791895">
+                Call
+            </a>
+        </div>
+        <!-- End: Mail & Phone -->
+
+        <!-- Begin: More info buttons -->
+        <div class="row">
+            <button onclick="showDetails('more-info__banking', 'banking-info-container'); showNumber()"
+                id="more-info__banking" class="more-info button theme-change col col-half has-more">
+                <i class="fas fa-credit-card"></i>
+                <h2 class="more-info__heading">Banking<br /></h2>
+            </button>
+            <button onclick="showDetails('more-info__portfolio', 'portfolio-info-container')" id="more-info__portfolio"
+                class="more-info button theme-change col col-half has-more">
+                <i class="fas fa-cloud"></i>
+                <h2 class="more-info__heading">Portfolio<br /></h2>
+            </button>
+        </div>
+        <!-- End: More info buttons -->
+
+        <!-- Begin: More info details -->
+        <div id="banking-info-container" class="more-info-container hidden">
+            <div class="row">
+                
+                <select id="banking-info__list" class="col col-three-fifth button theme-change highlight-text"
+                    onchange="showNumber()" required>
+                    <!-- <option value="none" disabled selected></option> -->
+                    <option value="03846929801">TP Bank</option>
+                   
+                </select>
+            </div>
+            <div class="more-details col-full button theme-change button--pressed"
+                onclick="copyContent(this.childNodes[1])">
+                <p id="banking-content" class="content"></p>
+                <a class="more-details-btn button theme-change button--highlight">
+                    Copy
+                </a>
+            </div>
+        </div>
+        <div id="portfolio-info-container" class="more-info-container row more-details hidden">
+            <a href="https://github.com/Canqu1" id="portfolio-btn__github"
+                class="social-btn button theme-change col-forth col">
+                <i class="fab fa-github"></i>
+            </a>
+            <a href="https://discord.gg/4XebQWm2" id="portfolio-btn__linkedin"
+                class="social-btn button theme-change col-forth col">
+                <i class="fab fa-discord"></i>
+            </a>
+        </div>
+    </div>
+    <script>
+        // function getOS() {
+        var userAgent = window.navigator.userAgent,
+            platform = window.navigator?.userAgentData?.platform || window.navigator.platform,
+            macosPlatforms = ['Macintosh', 'MacIntel', 'MacPPC', 'Mac68K'],
+            windowsPlatforms = ['Win32', 'Win64', 'Windows', 'WinCE'],
+            iosPlatforms = ['iPhone', 'iPad', 'iPod'],
+            os = null;
+
+        if (iosPlatforms.indexOf(platform) !== -1) {
+            document.getElementById("social-btn__facebook").href = "https://www.facebook.com/profile.php?id=100075338945442"
+            os = 'iOS';
+        } else if (/Android/.test(userAgent)) {
+            document.getElementById("social-btn__facebook").href = "https://www.facebook.com/profile.php?id=100075338945442"
+            os = 'Android';
+        }
+        //     return os;
+        // }
+
+        // getOS();
+
+        var changeThemeList =
+            document.getElementsByClassName('theme-change');
+        if (window.matchMedia('(prefers-color-scheme: light)').matches)
+            for (x of changeThemeList) x.classList.add('light');
+        else for (x of changeThemeList) x.classList.remove('light');
+        window
+            .matchMedia('(prefers-color-scheme: dark)')
+            .addEventListener('change', (event) => {
+                if (
+                    window.matchMedia('(prefers-color-scheme: light)')
+                        .matches
+                )
+                    for (x of changeThemeList) x.classList.add('light');
+                else for (x of changeThemeList) x.classList.remove('light');
+            });
+        var lastMainTag = null;
+        var lastSubTag = null;
+        var currentBank =
+            document.getElementById('banking-info__list').value;
+
+        function copyContent(target) {
+            var currentValue;
+            if (target == null) currentValue = currentBank;
+            else currentValue = target.innerHTML;
+            navigator.clipboard.writeText(currentValue);
+            if (window.matchMedia('(prefers-color-scheme: light)').matches)
+                target.innerHTML =
+                    '<span class="highlight-text light">Copied!<span>';
+            else
+                target.innerHTML =
+                    '<span class="highlight-text " >Copied!<span>';
+            const delayNotice = setTimeout(() => {
+                target.innerHTML = currentValue;
+            }, 1500);
+        }
+        function showDetails(mainTagName, subTagName) {
+            var mainTag = document.getElementById(mainTagName);
+            var subTag = document.getElementById(subTagName);
+            subTag.classList.toggle('hidden');
+            mainTag.classList.toggle('button--pressed');
+            if (lastMainTag != null && lastMainTag != mainTag) {
+                lastSubTag.classList.add('hidden');
+                lastMainTag.classList.remove('button--pressed');
+            }
+            lastMainTag = mainTag;
+            lastSubTag = subTag;
+        }
+        function showNumber() {
+            var bankingItem = document.getElementById('banking-info__list');
+            var bankingContent = document.getElementById('banking-content');
+            currentBank = bankingContent.innerHTML = bankingItem.value;
+        }
+    </script>
+</body>
+
+</html>
